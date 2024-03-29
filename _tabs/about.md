@@ -6,9 +6,9 @@ order: 1
 
 ## 박성진
 
-Sung-jin Park
+Seong-jin Park
 
-- music5038@gmail.com
+- dev.seongjin@gmail.com
 - Github: [denev6](https://github.com/denev6)
 - Blog: [Tistory](https://denev6.tistory.com/)
 - 🇰🇷 Busan, Korea.
