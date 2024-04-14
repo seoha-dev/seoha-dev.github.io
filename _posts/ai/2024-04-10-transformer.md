@@ -1,5 +1,5 @@
 ---
-title: Transformer, Attention Is All You Need
+title: Attention Is All You Need
 tags: [AI]
 category: AI
 toc: true 
@@ -105,7 +105,7 @@ $PE_{(pos,2i)}=sin(pos/10000^{2i/d_{model}})$
 
 $PE_{(pos,2i+1)}=cos(pos/10000^{2i/d_{model}})$
 
-_pos_는 위치이며, _i_는 차원이다. 각 차원은 정현파(sinusoid)에 대응된다. 주기는 $2\pi$에서 $10000\cdot 2\pi$가 된다. 
+*pos*는 위치이며, *i*는 차원이다. 각 차원은 정현파(sinusoid)에 대응된다. 주기는 $2\pi$에서 $10000\cdot 2\pi$가 된다. 
 
 **\*positional encoding 추가 설명**
 
@@ -155,7 +155,7 @@ _fig5_
 
 **Adam** optimizer를 사용했고, $\beta_1=0.9,\beta_2=0.98,\epsilon=10^{-9}$이다. 아래 수식을 이용해 learning rate를 변화해 가며 학습했다.
 
-$lrate=d^{-0.5}_{model}\cdot min(step\_num^{-0.5},step\_num\cdot warmup\_steps^{-1.5})$
+$lrate=d^{-0.5}_{model}\cdot min(step\\_num^{-0.5},step\\_num\cdot warmup\\_steps^{-1.5})$
 
 ![learning rate](lr.png)
 
