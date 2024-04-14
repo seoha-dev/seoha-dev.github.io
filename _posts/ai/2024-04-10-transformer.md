@@ -1,31 +1,25 @@
 ---
-title: Attention Is All You Need
-tags: [AI]
+title: Attention is all you need
 category: AI
 toc: true 
 math: true
 img_path: /assets/posts/transformer/
---- 
+---
 
 [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
 본 글은 "**_Attention is All You Need_**" 논문을 번역 및 분석했다. 일부 문장은 맥락에 따라 의역되었으며, 명확한 이해를 위해 부분적으로 설명을 추가했다. 주요 용어는 정확한 의미 전달을 위해 영문 그대로 작성했다. (예: recurrent, convolutional 등)
 
----
-
 ## Abstract 
 
 기존 시퀀스 모델은 encoder-decoder가 포함된 복잡한 recurrent나 convolutional 신경망을 기반으로 한다. 본 논문은 recurrence와 convolution 없이 **attention mechanisms을 기반으로 하는 간단한 Transformer 구조를 제안**한다. 2종류의 기계번역 문제에서 좋은 성과를 보였고, 병렬화를 통해 학습 시간을 단축했다. 본 모델은 WMT 2014 영어-독일어 번역에서 28.4 BLEU를 달성했다. WMT 2014 영어-프랑스어 번역은 41.8 BLEU로 단일 모델 SOTA를 달성했다. 8개 GPU로 3.5일을 학습했다. Transformer를 영어 문장 성분 파싱에 적용했고, 다른 문제에도 적용 가능하다는 사실을 확인했다. 학습 데이터가 큰 상황과 제한된 상황에서 모두 잘 학습되었다.
 
----
 
 ## Introduction
 
 RNN, LSTM, GRU는 기계 번역이나 언어 모델 분야에서 준수한 성능으로 입지를 확고히 해왔다. Recurrent 모델은 $t$ 시점 hidden state인 $h_t$를 학습하기 위해 $h_{t-1}$를 사용한다. 이러한 순차적인 구조는 병렬 연산을 활용할 수 없어 긴 시퀀스에 치명적이다. 최근 factorization tricks나 conditional computation을 이용해 연산 효율과 앞서 말한 문제를 개선했다. 하지만 여전히 모델 구조에 따른 근본적인 제약이 있다.
 
 Attention mechanisms는 시퀀스 길이에 관계없이 의존성 모델링이 가능하며, 다양한 문제에서 좋은 모습을 보여준다. 하지만 대부분 Attention은 recurrent 구조와 함께 사용된다. 본 논문은 Transformer를 제안하고, recurrence를 피하는 대신 **완전히 attention 구조에 의존하는 방식**으로 입출력 사이 global dependency를 도출한다. Transformer는 병렬 처리를 통해 변역 문제에서 SOTA를 달성했고, 8개의 P100 GPU로 12시간을 학습했다.
-
----
 
 ## Model Architecture
 
@@ -119,8 +113,6 @@ $PE_{(pos,2i+1)}=cos(pos/10000^{2i/d_{model}})$
 
 이를 통해 값이 너무 작거나 크지 않으면서 값이 중복되지 않도록 positional encoding을 수행했다.
 
----
-
 ## Why Self-Attention?
 
 self-attention을 사용한 이유는 크게 3가지이다.
@@ -138,8 +130,6 @@ _table1_
 _fig5_
 
 다양한 문제를 잘 해결할 뿐만 아니라 문장 의미와 문법을 잘 나타낸다.
-
----
 
 ## Training
 
@@ -164,8 +154,6 @@ $lrate=d^{-0.5}_{model}\cdot min(step\\_num^{-0.5},step\\_num\cdot warmup\\_step
 **Residual dropout**: 각 sub-layer가 입력과 더해지고 정규화되기 전에 dropout 시킨다. 추가로 embedding과 positional encoding 합에도 dropout을 적용한다. base model은 $P_{drop}=0.1$을 적용한다.
 
 **Label smoothing**: label smoothing factor로 $\epsilon_{ls}=0.1$을 사용한다. 모델을 모호하게 학습해 perplexity를 해치지만 accuracy와 BLEU 점수를 높여준다. 
-
----
 
 ## Result
 
@@ -192,8 +180,6 @@ _table3_
 Table3 (A) 열에서 attention head 개수, key-value 차원을 다르게 하되 연산 일관성을 유지했다. single-head attention은 0.9 BLEU로 성능이 하락했고, 너무 많은 head는 성능을 떨어뜨린다.
 
 Table3 (B) 열에서 attention key 차원을 줄이니 성능에 문제가 발생했다. (C)와 (D) 열은 큰 모델일수록 성능이 좋고, dropout이 over-fitting을 막는데 도움이 된다는 사실을 보여준다. (E) 열은 sinusiudal positional encoding 대신 학습된 positional embeddings을 사용했고 base model과 거의 비슷한 결과를 보였다. 
-
----
 
 ## Conclusion
 
