@@ -17,14 +17,14 @@ Seong-jin Park
 
 #### 기능 구현 등의 사용 경험이 있는 기술
 
-- Programing Languages: `Python3`
-- Framework/ Library: `Pytorch`, `Pandas`, `Sklearn`, `Opencv`
+- Programing Languages: `Python3`, `C++`
+- Framework/ Library: `Pytorch`, `Sklearn`, `Huggingface`, `Opencv`
 - Tools: `Git`, `VSCode`
 
 #### 사용 경험은 없으나, 이론적 지식이 있는 기술
 
-- Programing Languages: `Go`, `SQL`, `Django`
-- ETC: `Linux`, `Docker`
+- Programing Languages: `Go`, `SQL`
+- ETC: `Tensorflow`, `Linux`, `Docker`
 
 ## 소개
 
@@ -68,7 +68,7 @@ Seong-jin Park
     - 발화 문장 특성에 따른 정규화 및 전처리
 - 사용언어 및 환경: `Python3`, `Pytorch`, `Huggingface`, `NLTK`, `Colab`
 - DACON 발화자의 감정인식 AI 경진대회 참여
-- Github: [archive/transformer](https://github.com/denev6/archive/tree/main/transformer)
+- Github: [deep-learning-codes/roberta](https://github.com/denev6/deep-learning-codes/tree/main/roberta)
 - 블로그: [기록 보기](/projects/2022/12/17/dacon.html)
 
 ## 자격증 및 논문
