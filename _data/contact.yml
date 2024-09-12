@@ -9,16 +9,16 @@
 - type: blog
   icon: "fa-solid fa-pen"
   noblank: false
-  url: "https://denev6.tistory.com/"
+  url: "https://seoha-dev.github.io/"
 
-- type: instagram
-  icon: "fa-brands fa-instagram"
-  noblank: false
-  url: "https://www.instagram.com/color_dnv"
+#- type: instagram
+#  icon: "fa-brands fa-instagram"
+#  noblank: false
+#  url: "https://www.instagram.com/color_dnv"
 
-# - type: email
-#   icon: "fas fa-envelope"
-#   noblank: false # open link in current tab
+- type: email
+  icon: "fas fa-envelope"
+  noblank: false # open link in current tab
 
 - type: rss
   icon: "fas fa-rss"
