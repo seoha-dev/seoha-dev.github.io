@@ -19,6 +19,7 @@
 - type: email
   icon: "fas fa-envelope"
   noblank: false # open link in current tab
+  url: "contact@seoha.dev"
 
 - type: rss
   icon: "fas fa-rss"
